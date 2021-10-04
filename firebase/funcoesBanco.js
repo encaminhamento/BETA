@@ -69,7 +69,7 @@ function salvarBD() {
                     if (posicao > -1) { // verifica se a posição é valida
 
 
-                        linha = aux.substr(0, posicao); //SALVAR LINHA DO ENCMAINHAMENTO ATE O PRIMEIRO #
+                        linha = aux.substr(0, posicao); //SALVAR LINHA DO ENCAMINHAMENTO ATE O PRIMEIRO #
 
                         //segunda parte do texto, responsavel. Escreve "RESPONSAVEL. Prazo: DATA"
                         parte2 = aux.slice(posicao + 1);

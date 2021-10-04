@@ -54,7 +54,7 @@
                     <a href="./encaminhamento.html" target="_blank" class="link-success">Gestão de
                         Encaminhamento SGG</a>
                     <div class="testaa">
-                        <div class="form-floating col-md-8 espacamento">
+                        <div class="form-floating  espacamento">
                             <select class="form-select  " aria-label=".form-select-sm example" id="gerencias">
                                 <option value="" selected hidden>--Selecione--</option>
                             </select>
@@ -118,7 +118,7 @@
                             <div class="form-floating">
                                 <select onchange="escreve(), datas()" class="form-select  "
                                     aria-label="form-select-sm example" id="reuniaosPauta" disabled>
-                                    <option value="" disabled selected>--Selecione o Projeto--</option>
+                                    <option value="" disabled selected>-Selecione o Projeto-</option>
                                 </select>
                                 <label for="floatingSelectGrid">Projetos(*)</label>
                             </div>
@@ -139,8 +139,8 @@
                         </div>
                         <div class="col-md-2">
                             <div class="form-floating">
-                                <input class="form-control" type="time" aria-label=".form-control-lg example"
-                                    placeholder="Projeto - Data" id="hora" disabled>
+                                <input class="form-control" type="time" name="hora" min="08:00" max="18:00"
+                                    aria-label=".form-control-lg example" placeholder="Hora" id="hora" disabled>
                                 <label for="floatingInputGrid">Hora</label>
                             </div>
                         </div>
@@ -273,7 +273,7 @@
 
     <!--RODAPÉ-->
     <div class="p-2 bg-success text-white  text-center testaa">
-        Developed by: SGG - Version 2.0
+        Developed by: SGG - Version TESTE
     </div>
 </body>
 

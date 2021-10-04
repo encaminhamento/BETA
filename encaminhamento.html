@@ -54,15 +54,16 @@
                 <div class="offcanvas-body">
                     <a href="./index.html" target="_blank" class="espacamentoBaixo link-success">Gestão de Reuniões
                         SGG</a>
-                    <div class="form-floating col-md-8 espacamento">
-                        <select class="form-select  " aria-label=".form-select-sm example" id="gerencias">
-                            <option value="" selected hidden>--Selecione--</option>
-                        </select>
-                        <label for="floatingSelectGrid">Reunião</label>
+                    <div class="testaa">
+                        <div class="form-floating espacamento">
+                            <select class="form-select  " aria-label=".form-select-sm example" id="gerencias">
+                                <option value="" selected hidden>--Selecione--</option>
+                            </select>
+                            <label for="floatingSelectGrid">Reunião</label>
+                        </div>
+                        <textarea class="form-control" placeholder="Pauta da Reunião" id="adicional"
+                            style="height: 400px; resize: none"></textarea>
                     </div>
-                    <textarea class="form-control" placeholder="Colinha do Senhor Leonardo" id="adicional"
-                        style="height: 500px; resize: none"></textarea>
-
                 </div>
             </div>
 
@@ -120,8 +121,15 @@
                         <div class="col-md">
                             <div class="form-floating">
                                 <input class="form-control" type="text" aria-label=".form-control-lg example"
-                                    placeholder="Projeto - Data" id="data" disabled>
-                                <label for="floatingInputGrid">Projeto - Data</label>
+                                    placeholder="Projeto " id="projetoss" disabled>
+                                <label for="floatingInputGrid">Projeto</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-floating ">
+                                <input class="form-control" type="text" aria-label=".form-control-lg example"
+                                    placeholder=" Data" id="data" disabled>
+                                <label for="floatingInputGrid"> Data</label>
                             </div>
                         </div>
                     </div>
@@ -186,7 +194,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger"
                                             data-bs-dismiss="modal">Não</button>
-                                        <button onclick="" type="button" class="btn btn btn-success"
+                                        <button onclick="Salvar()" type="button" class="btn btn btn-success"
                                             data-bs-dismiss="modal">Sim</button>
                                     </div>
                                 </div>
@@ -253,7 +261,7 @@
     </script>
     <!--RODAPÉ-->
     <footer class="p-2 bg-success text-white fixed-bottom text-center">
-        Developed by: SGG - Version 2.0
+        Developed by: SGG - Version TESTE
     </footer>
 </body>
 

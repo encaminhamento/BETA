@@ -25,11 +25,13 @@ function formatar() { //Função responsavel por fazer a formatação do texto e
             var teste = document.querySelector('input[name="inlineRadioOptions"]:checked').value;
             //Verificação se é ou nao ponto de controle
             if (teste === "1") {
-                document.getElementById("segundo").value += "*Ponto de Controle " + document.getElementById("data").value + "*\n";
+                document.getElementById("segundo").value = "*Ponto de Controle ";
             }
             else {
-                document.getElementById("segundo").value += "*Reunião " + document.getElementById("data").value + "*\n";
+                document.getElementById("segundo").value = "*Reunião ";
             }
+
+            document.getElementById("segundo").value += document.getElementById("projetoss").value + " - " + document.getElementById("data").value + "*\n";
 
             if (encaminhamento !== "") {//verificação
 
@@ -129,6 +131,7 @@ function limpar() { //função limpar tela onde reseta os valores e desativas os
     document.getElementById("data").value = "";
     document.getElementById("reuniao").value = "";
     document.getElementById("adicional").value = "";
+    document.getElementById("projetoss").value = "";
 
     document.getElementById("NomeUsuario").disabled = true;
     document.getElementById("reuniao").disabled = true;
@@ -136,8 +139,9 @@ function limpar() { //função limpar tela onde reseta os valores e desativas os
     document.getElementById("primeiro").disabled = true;
     document.getElementById("ponto").disabled = true;
     document.getElementById("segundo").disabled = true;
+    document.getElementById("projetoss").disabled = true;
 
-
+    projetoss
 
 }
 
@@ -145,8 +149,9 @@ function datas() { //Pega a data atual no formato DD/MM
     var data = new Date();
     var dia = String(data.getDate()).padStart(2, '0');
     var mes = String(data.getMonth() + 1).padStart(2, '0');
+    // var ano = data.getFullYear();
     dataAtual = dia + "/" + mes;
-    document.getElementById("data").value += " - " + dataAtual;
+    document.getElementById("data").value = dataAtual;
 }
 
 function escreve() { //Escreve na tela "Projeto - Data" o projeto seleciado e a data
@@ -154,10 +159,10 @@ function escreve() { //Escreve na tela "Projeto - Data" o projeto seleciado e a 
 
 
     if (texto === 'Outra') { //caso o projeto seja 'outra' esreve somente '- DATA'
-        document.getElementById("data").value = '';
+        document.getElementById("projetoss").value = '';
     }
     else {
-        document.getElementById("data").value = texto;
+        document.getElementById("projetoss").value = texto;
     }
 
 }
@@ -182,7 +187,7 @@ function habilita() { //funçao para habilitar os quadros na tela inicial
     document.getElementById("primeiro").disabled = false;
     document.getElementById("ponto").disabled = false;
     document.getElementById("segundo").disabled = false;
-
+    document.getElementById("projetoss").disabled = false;
 
 }
 
@@ -265,5 +270,6 @@ function Principal() {
 }
 
 function Salvar() {
+
 
 }

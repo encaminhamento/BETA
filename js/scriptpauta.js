@@ -28,9 +28,17 @@ function formatar() { //Função responsavel por fazer a formatação do texto e
                 document.getElementById("formatado").value += "*Reunião " + document.getElementById("Projeto").value + " - " + document.getElementById("data").value + "*\n";
             }
             if (link !== "") {
-                document.getElementById("formatado").value += "\n*Link:* "; //Caso sim, escreve o titulo e dps "- TEXTO"
                 texto = document.getElementById("link").value;
-                document.getElementById("formatado").value += texto + "\n";
+                if (texto.indexOf("https") > -1) {
+
+
+                    document.getElementById("formatado").value += "\n*Link:* "; //Caso sim, escreve o titulo e dps "- TEXTO"
+                    document.getElementById("formatado").value += texto + "\n";
+                }
+                else {
+                    document.getElementById("formatado").value += "\n*Local:* ";
+                    document.getElementById("formatado").value += texto + "\n";
+                }
 
 
             }
@@ -162,7 +170,7 @@ function Muda() {//troca os projetos de acordo com a gerencia
 
     var inicial = document.createElement('option');
     inicial.value = "";
-    inicial.text = "--Selecione o Projeto--";
+    inicial.text = "-Selecione o Projeto-";
     selectSetor.add(inicial);
     if (value == '1') {
 
