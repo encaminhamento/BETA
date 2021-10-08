@@ -128,20 +128,15 @@ function limpar() { //função limpar tela onde reseta os valores e desativas os
     document.getElementById("primeiro").value = "";
     document.getElementById("ponto").value = "";
     document.getElementById("segundo").value = "";
-    document.getElementById("data").value = "";
     document.getElementById("reuniao").value = "";
     document.getElementById("adicional").value = "";
-    document.getElementById("projetoss").value = "";
 
     document.getElementById("NomeUsuario").disabled = true;
     document.getElementById("reuniao").disabled = true;
-    document.getElementById("data").disabled = true;
     document.getElementById("primeiro").disabled = true;
     document.getElementById("ponto").disabled = true;
     document.getElementById("segundo").disabled = true;
-    document.getElementById("projetoss").disabled = true;
 
-    projetoss
 
 }
 
@@ -183,11 +178,9 @@ function envio() { //Função de enviar via whatsapp
 function habilita() { //funçao para habilitar os quadros na tela inicial
     document.getElementById("NomeUsuario").disabled = false;
     document.getElementById("reuniao").disabled = false;
-    document.getElementById("data").disabled = false;
     document.getElementById("primeiro").disabled = false;
     document.getElementById("ponto").disabled = false;
     document.getElementById("segundo").disabled = false;
-    document.getElementById("projetoss").disabled = false;
 
 }
 

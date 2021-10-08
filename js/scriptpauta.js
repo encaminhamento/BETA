@@ -19,14 +19,10 @@ function formatar() { //Função responsavel por fazer a formatação do texto e
             var vetorString = texto.split("\n");
             var tamanho = vetorString.length;
 
-            var teste = document.querySelector('input[name="inlineRadioOptions"]:checked').value;
-            //Verificação se é ou nao ponto de controle
-            if (teste === "1") {
-                document.getElementById("formatado").value += "*Ponto de Controle " + document.getElementById("Projeto").value + " - " + document.getElementById("data").value + "*\n";
-            }
-            else {
-                document.getElementById("formatado").value += "*Reunião " + document.getElementById("Projeto").value + " - " + document.getElementById("data").value + "*\n";
-            }
+            var assunto = document.getElementById("Assunto").value;
+            document.getElementById("formatado").value += "*" + assunto + "*\n";
+            document.getElementById("formatado").value += "*Data:* " + ReuniaoData + " *Hora:* " + document.getElementById("hora").value + "\n";
+
             if (link !== "") {
                 texto = document.getElementById("link").value;
                 if (texto.indexOf("https") > -1) {
@@ -42,7 +38,7 @@ function formatar() { //Função responsavel por fazer a formatação do texto e
 
 
             }
-            document.getElementById("formatado").value += "\n*Horário:* " + document.getElementById("hora").value + "\n";
+
             if (document.getElementById("pauta").value != "") {//Verifica se escreveu algo no segundo quadrao
                 document.getElementById("formatado").value += "\n*Pauta:*\n"; //Caso sim, escreve o titulo e dps "- TEXTO"
                 texto = document.getElementById("pauta").value;
@@ -61,9 +57,15 @@ function formatar() { //Função responsavel por fazer a formatação do texto e
                 vetorString = texto.split("\n");
                 tamanho = vetorString.length;
                 for (var i = 0; i < tamanho; i++) {
+                    var aux = vetorString[i];
+                    var posicao = aux.indexOf("#");
 
-                    document.getElementById("formatado").value += "- " + vetorString[i] + "\n";
-
+                    if (posicao > -1) {
+                        document.getElementById("formatado").value += "- " + aux.substr(0, posicao) + " *Orgão: " + aux.slice(posicao + 1) + "*\n";
+                    }
+                    else {
+                        document.getElementById("formatado").value += "- " + vetorString[i] + "\n";
+                    }
                 }
             }
         }
@@ -91,8 +93,9 @@ function limpar() { //função limpar tela onde reseta os valores e desativas os
     document.getElementById("reuniaosPauta").value = "";
     document.getElementById("adicional").value = "";
     document.getElementById("Participante").value = "";
-    document.getElementById("Projeto").value = "";
+    document.getElementById("Assunto").value = "";
     document.getElementById("hora").value = "";
+    document.getElementById("NomeUsuarioo").value = "";
 
     document.getElementById("reuniaosPauta").disabled = true;
     document.getElementById("data").disabled = true;
@@ -100,8 +103,9 @@ function limpar() { //função limpar tela onde reseta os valores e desativas os
     document.getElementById("pauta").disabled = true;
     document.getElementById("formatado").disabled = true;
     document.getElementById("Participante").disabled = true;
-    document.getElementById("Projeto").disabled = true;
+    document.getElementById("Assunto").disabled = true;
     document.getElementById("hora").disabled = true;
+    document.getElementById("NomeUsuarioo").disabled = true;
 
 
 
@@ -118,12 +122,25 @@ function datas() { //Pega a data atual no formato DD/MM
 function escreve() { //Escreve na tela "Projeto - Data" o projeto seleciado e a data
     var texto = document.getElementById('reuniaosPauta').options[document.getElementById('reuniaosPauta').selectedIndex].innerText;
 
+    var teste = document.querySelector('input[name="inlineRadioOptions"]:checked').value;
+    //Verificação se é ou nao ponto de controle
+
 
     if (texto === 'Outra') { //caso o projeto seja 'outra' esreve somente '- DATA'
-        document.getElementById("Projeto").value = '';
+        if (teste === "1") {
+            document.getElementById("Assunto").value = "Ponto de Controle " + ' ';
+        }
+        else {
+            document.getElementById("Assunto").value = ' ';
+        }
     }
     else {
-        document.getElementById("Projeto").value = texto;
+        if (teste === "1") {
+            document.getElementById("Assunto").value = "Ponto de Controle " + texto
+        }
+        else {
+            document.getElementById("Assunto").value = "Reunião " + texto;
+        }
     }
 
 }
@@ -148,8 +165,9 @@ function habilita() { //funçao para habilitar os quadros na tela inicial
     document.getElementById("pauta").disabled = false;
     document.getElementById("formatado").disabled = false;
     document.getElementById("hora").disabled = false;
-    document.getElementById("Projeto").disabled = false;
+    document.getElementById("Assunto").disabled = false;
     document.getElementById("Participante").disabled = false;
+    document.getElementById("NomeUsuarioo").disabled = false;
 
 
 }

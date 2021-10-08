@@ -22,69 +22,55 @@
 <body>
     <!-- cabeçalho do site -->
     <header class="cabecalho ">
-        <main>
+        <div class="p-3 mb-2 bg-success">
             <!-- Imagem logo -->
-            <img src="./img/sgg-n (1).png" class="img-fluid rounded float-start d-none d-sm-block">
+            <img class="d-none d-sm-block aaaaaa" src="./img/sgg-n (1).png">
 
 
             <!-- cor, tamanho e tipo (bootstrap) -->
-            <div class="p-3 mb-2 bg-success text-white">
-                <!-- Titulo do site -->
+            <!-- Titulo do site -->
+            <h3 class="text-center text-white  texto">TITULO SISTEMA</h3>
 
-
-                <h3 class="text-center">Gestão de Reuniões SGG</h3>
-
-
-
-            </div>
-
-            <button class="btn btn-success position-absolute top-0 end-0" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                <img src="./img/menu.svg">
-            </button>
-            <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-                id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                <div class="offcanvas-header text-dark">
-                    <h5 id="offcanvasRightLabel">Mais Opções</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-
-                    <a href="./encaminhamento.html" target="_blank" class="link-success">Gestão de
-                        Encaminhamento SGG</a>
-                    <div class="testaa">
-                        <div class="form-floating  espacamento">
-                            <select class="form-select  " aria-label=".form-select-sm example" id="gerencias">
-                                <option value="" selected hidden>--Selecione--</option>
-                            </select>
-                            <label for="floatingSelectGrid">Reunião</label>
-                        </div>
-
-                        <textarea class="form-control" placeholder="Pauta da reuniao" id="adicional"
-                            style="height: 400px; resize: none"></textarea>
-                    </div>
+        </div>
 
 
 
-
-
-                </div>
-            </div>
-
-
-
-        </main>
+        </div>
 
     </header>
 
+    <div class="container-fluid">
+        <button class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#off"
+            aria-controls="off">
+            <img src="./img/chevrons-right.svg">
+        </button>
 
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="off"
+            aria-labelledby="off">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="off">Menu</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div>
+                    <img src="./img/corner-down-right.svg">
+                    <a href="./encaminhamento.html" target="_self" class="link-success">Cadastro de Encaminhamento</a>
+                </div>
+                <div class="espacamentoAlto">
+                    <img src="./img/corner-down-right.svg">
+                    <a href="./index.html" target="_self" class="espacamentoBaixo link-success">Cadastro de Reunião</a>
+                </div>
+            </div>
+        </div>
+        <h4 class="text-center texto2">Cadastro de Reunião</h4>
+    </div>
     <form class="form  ">
         <div class="container teste">
             <div class="row ">
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                     <div class="row g-2">
-                        <div class="form-floating col-md-8 espacamentoBaixo">
+                        <div class="form-floating col-md-4 espacamentoBaixo">
                             <select onchange="habilita(), Muda()" class="form-select  "
                                 aria-label=".form-select-sm example" id="GerenciaPauta">
                                 <option value="" selected hidden>--Selecione--</option>
@@ -94,7 +80,11 @@
                             </select>
                             <label for="floatingSelectGrid">Gerencia(*)</label>
                         </div>
-
+                        <div class="form-floating col-md">
+                            <input class="form-control" type="text" placeholder="Nome" id="NomeUsuarioo"
+                                disabled></input>
+                            <label for="floatingTextarea2">Digite seu nome(*)</label>
+                        </div>
                         <div class="col-md-4">
                             <legend class="col-form-label  pt-0">Ponto de Controle?</legend>
                             <div class="form-check form-check-inline espacamentoEsq espacamentoPonto">
@@ -116,36 +106,35 @@
                     <div class="row g-2 espacamento">
                         <div class="col-md">
                             <div class="form-floating">
-                                <select onchange="escreve(), datas()" class="form-select  "
+                                <select onchange="datas(),escreve()" class="form-select  "
                                     aria-label="form-select-sm example" id="reuniaosPauta" disabled>
                                     <option value="" disabled selected>-Selecione o Projeto-</option>
                                 </select>
                                 <label for="floatingSelectGrid">Projetos(*)</label>
                             </div>
                         </div>
-                        <div class="col-md">
-                            <div class="form-floating">
-                                <input class="form-control" type="text" aria-label=".form-control-lg example"
-                                    placeholder="Projeto - Data" id="Projeto" disabled>
-                                <label for="floatingInputGrid">Projeto</label>
-                            </div>
-                        </div>
+
                         <div class="col-md-2">
                             <div class="form-floating">
                                 <input class="form-control" type="text" aria-label=".form-control-lg example"
-                                    placeholder="Projeto - Data" id="data" disabled>
+                                    placeholder="Data" id="data" disabled>
                                 <label for="floatingInputGrid">Data</label>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-floating">
-                                <input class="form-control" type="time" name="hora" min="08:00" max="18:00"
+                                <input class="form-control" type="time" name="hora" max="18:00"
                                     aria-label=".form-control-lg example" placeholder="Hora" id="hora" disabled>
                                 <label for="floatingInputGrid">Hora</label>
                             </div>
                         </div>
 
 
+                    </div>
+                    <div class="form-floating espacamentoAlto">
+                        <input class="form-control" type="text" aria-label=".form-control-lg example"
+                            placeholder="Assunto" id="Assunto" disabled>
+                        <label for="floatingInputGrid">Assunto</label>
                     </div>
                     <div class="form-floating espacamentoAlto">
                         <input class="form-control" type="text" aria-label=".form-control-lg example"
@@ -158,9 +147,9 @@
                         <label for="pauta">Pauta</label>
                     </div>
                     <div class="espacamento form-floating">
-                        <textarea class="form-control" placeholder="Participante" id="Participante"
+                        <textarea class="form-control" placeholder="Participante#Orgão" id="Participante"
                             style="height: 150px; resize: none" disabled></textarea>
-                        <label for="pauta">Participantes</label>
+                        <label for="pauta">Participantes#Orgão</label>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 ">
@@ -207,7 +196,7 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Deseja realmente salvar a mensagem na nuvem?
+                                        Deseja realmente salvar a mensagem?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger"
@@ -247,7 +236,7 @@
                     </div>
                     <div class="form-floating">
                         <textarea class="form-control" placeholder="Pauta Formatada" id="formatado"
-                            style="height: 510px; resize: none" disabled></textarea>
+                            style="height: 582px; resize: none" disabled></textarea>
                         <label for="formatado">Pauta Formatada</label>
                     </div>
                 </div>
